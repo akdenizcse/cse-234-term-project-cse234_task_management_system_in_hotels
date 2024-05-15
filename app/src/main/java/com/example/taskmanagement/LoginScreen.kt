@@ -11,9 +11,14 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -21,6 +26,10 @@ import androidx.navigation.NavController
 
 @Composable
 fun LoginScreen(navController: NavController) {
+    // MutableState'leri tanımla
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -33,29 +42,34 @@ fun LoginScreen(navController: NavController) {
         Text(text = "Login to your account")
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = "", onValueChange = {}, label = {
-            Text(text = "Email address")
-        })
-        
+        // Email alanı
+        OutlinedTextField(
+            value = email,
+            onValueChange = { email = it },
+            label = { Text(text = "Email address") }
+        )
+
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = "", onValueChange = {}, label = {
-            Text(text = "Password")
-        })
-        
+       //Password alanı
+        OutlinedTextField(
+            value = password,
+            onValueChange = { password = it },
+            label = { Text(text = "Password") },
+            visualTransformation = PasswordVisualTransformation()
+        )
+
         Spacer(modifier = Modifier.height(16.dp))
-        
-        Button(onClick = {navController.navigate(route = "EntryScreen")}) {
+            //Login butonu daha sonra buraya parametre ekleyip diğer sayfaya göndercez
+        Button(onClick = { navController.navigate(route = "Dashboard") }) {
             Text(text = "Login")
-            
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-        
-        Text(text = "Forgot Password? ", modifier = Modifier.clickable {  })
 
-
-
-
+        Text(
+            text = "Forgot Password? ",
+            modifier = Modifier.clickable {  }
+        )
     }
 }

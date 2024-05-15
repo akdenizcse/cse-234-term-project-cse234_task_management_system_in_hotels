@@ -57,7 +57,10 @@ fun Dashboard(name:String, surname:String, job:String) {
 @Composable
 fun DashboardInProgress(){
     val tasks = listOf(
-        Task(1,"lorem","lorem ipsulum",Status.InProgress)
+        Task(1,"lorem","lorem ipsulum",Status.InProgress),
+        Task(2,"lorem","lorem ipsulum",Status.InProgress),
+        Task(3,"lorem","lorem ipsulum",Status.Todo)
+
 
     )
     Column(horizontalAlignment = Alignment.CenterHorizontally) {

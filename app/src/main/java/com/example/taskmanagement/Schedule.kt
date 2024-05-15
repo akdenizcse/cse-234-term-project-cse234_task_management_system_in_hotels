@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import org.jetbrains.annotations.Async.Schedule
 
 @Composable
-fun Tasks() {
+fun Schedule(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()){
         Column(modifier = Modifier
             .fillMaxSize()
