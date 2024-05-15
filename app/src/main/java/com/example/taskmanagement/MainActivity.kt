@@ -13,9 +13,11 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,6 +48,10 @@ class MainActivity : ComponentActivity() {
                         Dashboard("enver", "Untuç", "cleaner")
                         Spacer(modifier = Modifier.height(30.dp))
                         DashboardInProgress()
+                        Button(onClick = { navController.navigate(route = "Schedule") }) {
+                            Text(text = "To see todo tasks")
+                            
+                        }
                     }
                 }
                 composable(route = "Schedule"){
