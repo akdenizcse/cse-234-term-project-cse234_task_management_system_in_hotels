@@ -16,10 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -44,7 +45,7 @@ fun LoginScreen() {
         
         Spacer(modifier = Modifier.height(16.dp))
         
-        Button(onClick = { }) {
+        Button(onClick = {navController.navigate(route = "EntryScreen")}) {
             Text(text = "Login")
             
         }
