@@ -1,4 +1,4 @@
-package com.example.taskmanagement
+package com.example.taskmanagement.UIScreens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,7 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import com.example.taskmanagement.Status
+import com.example.taskmanagement.Task
 
 @Composable
 fun Dashboard(name:String, surname:String, job:String) {
@@ -58,9 +59,9 @@ fun Dashboard(name:String, surname:String, job:String) {
 @Composable
 fun DashboardInProgress(){
     val tasks = listOf(
-        Task(1,"lorem","lorem ipsulum",Status.InProgress),
-        Task(2,"lorem","lorem ipsulum",Status.InProgress),
-        Task(3,"lorem","lorem ipsulum",Status.Todo)
+        Task(1,"lorem","lorem ipsulum", Status.InProgress),
+        Task(2,"lorem","lorem ipsulum", Status.InProgress),
+        Task(3,"lorem","lorem ipsulum", Status.Todo)
 
 
     )
@@ -98,7 +99,7 @@ fun DashboardInProgress(){
                             }
                         }
                         Button(
-                            onClick = { task.status = Status.Done},
+                            onClick = { task.status = Status.Done },
                             modifier = Modifier.align(Alignment.CenterVertically)
                         ) {
                             Text(text = "Done")

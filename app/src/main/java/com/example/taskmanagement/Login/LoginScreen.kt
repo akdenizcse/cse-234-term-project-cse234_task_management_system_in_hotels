@@ -1,8 +1,8 @@
-package com.example.taskmanagement
+package com.example.taskmanagement.Login
+
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,13 +19,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 @Composable
 fun LoginScreen(navController: NavController) {
+
     // MutableState'leri tanımla
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -61,7 +65,22 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
             //Login butonu daha sonra buraya parametre ekleyip diğer sayfaya göndercez
-        Button(onClick = { navController.navigate(route = "Dashboard") }) {
+        Button(onClick = {
+            val call = RetrofitInstance.apiService.login(email, password)
+            call.enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                    if (response.isSuccessful) {
+                        navController.navigate("Dashboard")
+                    } else {
+                        // Handle error
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            }) }){
             Text(text = "Login")
         }
 
@@ -73,3 +92,5 @@ fun LoginScreen(navController: NavController) {
         )
     }
 }
+
+

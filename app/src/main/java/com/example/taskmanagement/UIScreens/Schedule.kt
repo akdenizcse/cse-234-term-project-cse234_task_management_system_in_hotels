@@ -1,11 +1,9 @@
-package com.example.taskmanagement
+package com.example.taskmanagement.UIScreens
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -22,14 +20,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import org.jetbrains.annotations.Async.Schedule
+import com.example.taskmanagement.Status
+import com.example.taskmanagement.Task
 
 @Composable
 fun Schedule(navController: NavController) {
     val tasks = listOf(
-        Task(1,"lorem","lorem ipsulum",Status.InProgress),
-        Task(2,"lorem","lorem ipsulum",Status.InProgress),
-        Task(3,"lorem","lorem ipsulum",Status.Todo)
+        Task(1,"lorem","lorem ipsulum", Status.InProgress),
+        Task(2,"lorem","lorem ipsulum", Status.InProgress),
+        Task(3,"lorem","lorem ipsulum", Status.Todo)
 
 
     )
