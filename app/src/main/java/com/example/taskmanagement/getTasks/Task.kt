@@ -1,4 +1,4 @@
-package com.example.taskmanagement.GetTasks
+package com.example.taskmanagement.getTasks
 
 enum class Status{
     Todo,

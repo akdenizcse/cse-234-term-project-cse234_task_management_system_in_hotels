@@ -1,4 +1,4 @@
-package com.example.taskmanagement.GetTasks
+package com.example.taskmanagement.getTasks
 
 import retrofit2.http.GET
 

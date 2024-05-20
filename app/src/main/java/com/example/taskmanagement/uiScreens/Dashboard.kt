@@ -1,4 +1,4 @@
-package com.example.taskmanagement.UIScreens
+package com.example.taskmanagement.uiScreens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,8 +25,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.taskmanagement.GetTasks.Status
-import com.example.taskmanagement.GetTasks.Task
+import com.example.taskmanagement.getTasks.Status
+import com.example.taskmanagement.getTasks.Task
 
 @Composable
 fun Dashboard(name:String, surname:String, job:String) {
@@ -69,24 +69,7 @@ fun DashboardInProgress(){
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         //add days to the week
         // Add this after the Icon in the Row
-        Row(modifier = Modifier.padding(top = 16.dp)) {
-            val daysOfWeek = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
-            daysOfWeek.forEach { day ->
-                Surface(
-                    shape = CircleShape,
-                    border = BorderStroke(1.dp, Color.Gray),
-                    modifier = Modifier
-                        .size(30.dp)
-                        .padding(horizontal = 4.dp)
-                ) {
-                    Text(
-                        text = day,
-                        modifier = Modifier.align(Alignment.CenterVertically),
-                        fontSize = 10.sp
-                    )
-                }
-            }
-        }
+
         Text(
             text = "In Progress tasks",
             fontWeight = FontWeight.Bold,

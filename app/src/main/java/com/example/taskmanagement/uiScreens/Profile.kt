@@ -1,4 +1,4 @@
-package com.example.taskmanagement.UIScreens
+package com.example.taskmanagement.uiScreens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

@@ -1,8 +1,8 @@
-package com.example.taskmanagement.Login
+package com.example.taskmanagement.login
 
 
 
-import com.example.taskmanagement.GetTasks.TaskService
+import com.example.taskmanagement.getTasks.TaskService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
