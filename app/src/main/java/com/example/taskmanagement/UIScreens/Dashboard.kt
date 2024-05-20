@@ -1,5 +1,5 @@
 package com.example.taskmanagement.UIScreens
-
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
@@ -15,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,38 +25,37 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.taskmanagement.Status
-import com.example.taskmanagement.Task
+import com.example.taskmanagement.GetTasks.Status
+import com.example.taskmanagement.GetTasks.Task
 
 @Composable
 fun Dashboard(name:String, surname:String, job:String) {
-   Row (modifier = Modifier
-       .fillMaxWidth()
-       .padding(top = 20.dp)
-       .padding(horizontal = 30.dp),
-       horizontalArrangement = Arrangement.SpaceBetween,
-       verticalAlignment = Alignment.CenterVertically){
-       Column {
-           Text(
-               text = "Welcome, $name $surname",
-               fontSize = 18.sp,
-               color = Color.Black,
-               fontWeight = FontWeight.Bold
-           )
-           Text(
-              text = job,
-               fontSize = 14.sp,
-               color = Color.Gray,
-              fontWeight = FontWeight.Light
-               )
-       }
-       Icon(
-           Icons.Default.Person,
-           contentDescription = null,
-           modifier = Modifier.size(44.dp),
-       )
-   }
-
+    Row (modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 20.dp)
+        .padding(horizontal = 30.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically){
+        Column {
+            Text(
+                text = "Welcome, $name $surname",
+                fontSize = 18.sp,
+                color = Color.Black,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = job,
+                fontSize = 14.sp,
+                color = Color.Gray,
+                fontWeight = FontWeight.Light
+            )
+        }
+        Icon(
+            Icons.Default.Person,
+            contentDescription = null,
+            modifier = Modifier.size(44.dp),
+        )
+    }
 }
 @Composable
 fun DashboardInProgress(){
@@ -66,6 +67,26 @@ fun DashboardInProgress(){
 
     )
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        //add days to the week
+        // Add this after the Icon in the Row
+        Row(modifier = Modifier.padding(top = 16.dp)) {
+            val daysOfWeek = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+            daysOfWeek.forEach { day ->
+                Surface(
+                    shape = CircleShape,
+                    border = BorderStroke(1.dp, Color.Gray),
+                    modifier = Modifier
+                        .size(30.dp)
+                        .padding(horizontal = 4.dp)
+                ) {
+                    Text(
+                        text = day,
+                        modifier = Modifier.align(Alignment.CenterVertically),
+                        fontSize = 10.sp
+                    )
+                }
+            }
+        }
         Text(
             text = "In Progress tasks",
             fontWeight = FontWeight.Bold,
@@ -99,18 +120,16 @@ fun DashboardInProgress(){
                             }
                         }
                         Button(
-                            onClick = { task.status = Status.Done },
+                            onClick = { /* Task tamamlandı işlemleri */ },
                             modifier = Modifier.align(Alignment.CenterVertically)
                         ) {
                             Text(text = "Done")
                         }
                     }
-                }
-            }
-
-            }
+                }}
         }
     }
+}
 
 
 

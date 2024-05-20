@@ -13,6 +13,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,18 +24,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.taskmanagement.Status
-import com.example.taskmanagement.Task
+import com.example.taskmanagement.Login.RetrofitInstance
+import com.example.taskmanagement.GetTasks.Status
+import com.example.taskmanagement.GetTasks.Task
+import kotlinx.coroutines.launch
 
 @Composable
 fun Schedule(navController: NavController) {
-    val tasks = listOf(
-        Task(1,"lorem","lorem ipsulum", Status.InProgress),
-        Task(2,"lorem","lorem ipsulum", Status.InProgress),
-        Task(3,"lorem","lorem ipsulum", Status.Todo)
+    val coroutineScope = rememberCoroutineScope()
+    val tasks = remember { mutableStateOf(emptyList<Task>()) }
 
+    LaunchedEffect(Unit ) {
+        coroutineScope.launch {
+            tasks.value = RetrofitInstance.taskService.getTasks()
+        }
 
-    )
+    }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "To do Tasks",
@@ -49,7 +57,7 @@ fun Schedule(navController: NavController) {
         )
         Column {
 
-            for (task in tasks) {
+            for (task in tasks.value) {
                 if (task.status == Status.Todo){
                     Row(
                         modifier = Modifier.fillMaxWidth(),

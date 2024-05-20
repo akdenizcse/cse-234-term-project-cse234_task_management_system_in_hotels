@@ -70,7 +70,7 @@ fun LoginScreen(navController: NavController) {
             call.enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful) {
-                        navController.navigate("Dashboard")
+                        navController.navigate("Dashboard/${response.body()?.token}")
                     } else {
                         // Handle error
                     }

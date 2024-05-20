@@ -26,36 +26,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
-            //ekranları birbirine bağlama
-            NavHost(navController = navController, startDestination = "LoginScreen", builder = {
-                composable(route = "LoginScreen") {
-                    LoginScreen(navController)
-                }
-                //daha sonra buraya parametre gönderme ekleyeceğiz
-                composable(route = "Dashboard") {
-                    Column {
+            Column {
 
 
-                        Dashboard("enver", "Untuç", "cleaner")
-                        Spacer(modifier = Modifier.height(30.dp))
-                        DashboardInProgress()
-                        Button(onClick = { navController.navigate(route = "Schedule") }) {
-                            Text(text = "To see todo tasks")
-                            
-                        }
-                    }
-                }
-                composable(route = "Schedule"){
-                    Schedule(navController)
-
-                }
-                composable(route = "Profile"){
-                    Profile(navController)
-
-                }
-            })
-
+                Dashboard(name = "enver", surname = "ut", job = "aa")
+                DashboardInProgress()
+            }
 
         }
     }
@@ -63,14 +39,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-
-
-
-
-private val retrofit = Retrofit.Builder()
-    .baseUrl("http://your-backend-api-url") // Replace with your API base URL
-    .addConverterFactory(GsonConverterFactory.create()) // Add converter for JSON
-    .build()
 
 
 
