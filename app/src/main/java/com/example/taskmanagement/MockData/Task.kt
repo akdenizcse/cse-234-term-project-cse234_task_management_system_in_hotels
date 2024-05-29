@@ -1,4 +1,4 @@
-package com.example.taskmanagement.getTasks
+package com.example.taskmanagement.MockData
 
 enum class Status{
     Todo,

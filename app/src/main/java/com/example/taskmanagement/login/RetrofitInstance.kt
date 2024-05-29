@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "http://your-backend-api-url"
+    private const val BASE_URL = "https://taskmanagementsysteminhotels.azurewebsites.net/api/Account/authenticate"
 
     val apiService: ApiService by lazy {
         Retrofit.Builder()
