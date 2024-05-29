@@ -1,4 +1,4 @@
-package com.example.taskmanagement.Dasboard
+package com.example.taskmanagement.dashboard
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
@@ -19,11 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.azureexp.ui.theme.Poppins
-import com.example.azureexp.ui.theme.PrimaryColor
-import com.example.azureexp.ui.theme.PrimaryTextColor
-import com.example.azureexp.ui.theme.SecondaryColor
-import com.example.azureexp.ui.theme.SubTextColor
+import com.example.taskmanagement.ui.theme.Poppins
+import com.example.taskmanagement.ui.theme.PrimaryColor
+import com.example.taskmanagement.ui.theme.PrimaryTextColor
+import com.example.taskmanagement.ui.theme.SecondaryColor
+import com.example.taskmanagement.ui.theme.SubTextColor
 
 @Composable
 fun ProgressBarUI(percentage: Float) {

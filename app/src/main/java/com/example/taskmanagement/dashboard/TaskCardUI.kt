@@ -1,4 +1,4 @@
-package com.example.taskmanagement.Dasboard
+package com.example.taskmanagement.dashboard
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -28,19 +28,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.azureexp.ui.theme.PrimaryColor
-import com.example.azureexp.R
-import com.example.azureexp.ui.theme.Poppins
-import com.example.azureexp.ui.theme.PrimaryTextColor
-import com.example.azureexp.ui.theme.Shapes
-import com.example.azureexp.ui.theme.SubTextColor
+import com.example.taskmanagement.R
+import com.example.taskmanagement.ui.theme.Poppins
+import com.example.taskmanagement.ui.theme.PrimaryColor
+import com.example.taskmanagement.ui.theme.PrimaryTextColor
+import com.example.taskmanagement.ui.theme.Shapes
+import com.example.taskmanagement.ui.theme.SubTextColor
 
 
 @Composable
 fun TaskCardUI(navController: NavController) {
-    val annotatedString1 = AnnotatedString.Builder("4/6 Task")
-        .apply {
+    val annotatedString1 = AnnotatedString.Builder("4/6 Task").apply {
             addStyle(
                 SpanStyle(
                     color = PrimaryColor,
@@ -57,8 +55,7 @@ fun TaskCardUI(navController: NavController) {
         shape = Shapes.large
     ) {
         Row(
-            modifier = Modifier.padding(20.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
+            modifier = Modifier.padding(20.dp), horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
                 Text(
@@ -94,7 +91,7 @@ fun TaskCardUI(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
-                    onClick = { navController.navigate("inprogressTasks")},
+                    onClick = { navController.navigate("inprogressTasks") },
                     modifier = Modifier
                         .clip(Shapes.large)
                         .border(width = 0.dp, color = Color.Transparent, shape = Shapes.large),

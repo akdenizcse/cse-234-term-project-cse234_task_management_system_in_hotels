@@ -1,4 +1,4 @@
-package com.example.taskmanagement.Dasboard
+package com.example.taskmanagement.dashboard
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

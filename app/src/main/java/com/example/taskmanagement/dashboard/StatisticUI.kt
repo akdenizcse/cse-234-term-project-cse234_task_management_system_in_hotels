@@ -1,4 +1,4 @@
-package com.example.taskmanagement.Dasboard
+package com.example.taskmanagement.dashboard
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
+
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,14 +24,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.azureexp.ui.theme.Poppins
-import com.example.azureexp.R
-import com.example.azureexp.ui.theme.PrimaryTextColor
-import com.example.azureexp.ui.theme.Shapes
-import com.example.azureexp.ui.theme.SubTextColor
 import com.example.taskmanagement.R
 import com.example.taskmanagement.ui.theme.Poppins
 import com.example.taskmanagement.ui.theme.PrimaryTextColor
+import com.example.taskmanagement.ui.theme.Shapes
+import com.example.taskmanagement.ui.theme.SubTextColor
 
 @Composable
 fun StatisticUI() {
