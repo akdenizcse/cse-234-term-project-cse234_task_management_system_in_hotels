@@ -1,25 +1,35 @@
 package com.example.taskmanagement.login
 
-
-
+import com.example.taskmanagement.getTasks.TaskService
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://taskmanagementsysteminhotels.azurewebsites.net/api/Account/authenticate"
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
 
-    val apiService: ApiService by lazy {
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .build()
+
+    private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl("https://taskmanagementsysteminhotels.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
             .build()
-            .create(ApiService::class.java)
     }
-    val taskService: TaskService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(TaskService::class.java)
+
+    val userRetrofit: UserService by lazy {
+        retrofit.create(UserService::class.java)
     }
+
+    val taskRetrofit: TaskService by lazy {
+        retrofit.create(TaskService::class.java)
+    }
+
+
 }
